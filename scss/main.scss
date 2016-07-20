@@ -66,6 +66,11 @@
                                 text-transform: uppercase;
                             }
                         }
+
+                        &.complete {
+                              text-decoration: line-through;
+                              color: gray;
+                         }
                     }
 
                     .checkbox {

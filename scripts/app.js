@@ -1,63 +1,8 @@
 
 
 
-angular.module('TodoListApp', [])
-
-.directive('newTask', function() {
-   return {
-        template: '<div class="add"><a ng-click="addListItem()" href="">+ Add a New Task</a></div>'
-    };
-})
-
-.controller('mainCtrl', function($scope, dataList) {
-
-    /**************** Need For File ****************/
-   //  $scope.inputLabels = [
-   //      {"name": "feed the fishes"},
-   //      {"name": "Drink more coffee"},
-   //      {"name": "Pay for napkins"},
-   //      {"name": "Trip and fall."},
-   //      {"name": "Sing to the Bearded Lady"}
-   //  ]
-    /**************** Need For File ****************/
-
-    /**************** Need For Github ****************/
-    dataList.getList(function(response){
-        console.log(response.data);
-        $scope.inputLabels = response.data;
-    })
-    /**************** Need For Github ****************/
-
-   $scope.addListItem = function() {
-      var inputLabel = {'name': 'This is your new task.'};
-      $scope.inputLabels.push(inputLabel);
-   };
-
-   $scope.saveListItem = function(inputLabel) {
-      dataList.saveListItem(inputLabel);
-   };
-
-   $scope.deleteListItem = function(inputLabel, $index) {
-      dataList.deleteListItem(inputLabel);
-      $scope.inputLabels.splice($index, 1);
-   };
-})
-
-.service('dataList', function($http) {
-
-    /**************** Need For Github ****************/
-    this.getList = function(callback) {
-        $http.get('../Angular-Practice/mock/todo-list.json')
-        .then(callback)
-    }
-    /**************** Need For Github ****************/
+angular.module('TodoListApp', []);
 
 
-    this.deleteListItem = function(inputLabel) {
-        console.log('The ' + inputLabel.name + ' todo has been deleted.');
-    }
-
-    this.saveListItem = function(inputLabel) {
-        console.log('The ' + inputLabel.name + ' todo has been saved.');
-    }
-})
+// Before Pushing onto Github, Check With:   - controllers/main.js
+//                                           - services/data.js

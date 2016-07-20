@@ -1,0 +1,18 @@
+
+<div class="list" ng-controller='mainCtrl'>
+   <div class="add">
+      <a ng-click="addListItem()" href="">+ Add a New Task</a>
+   </div>
+   <div class="list-item-wrap" ng-class='{"item-selected": editing}' ng-repeat='inputLabel in inputLabels | orderBy: "complete"' ng-init='inputLabel.complete = false'>
+      <div class="list-item">
+         <input class='checkbox' ng-model='inputLabel.complete' type="checkbox">
+         <label class='editing-label' ng-class='{"edited": edited, "complete": inputLabel.complete}' ng-hide='editing'>{{inputLabel.name}}</label>
+         <input class='editing-input' ng-change='edited = true' ng-blur='editing = false' ng-show='editing' ng-model='inputLabel.name' type="text">
+      </div>
+      <div class="actions">
+         <button class='edit' ng-click='editing = !editing' type="button" href=''>edit</button>
+         <button class='save' ng-click='edited = false; saveListItem(inputLabel)' type="button" href=''>save</button>
+         <button class='delete' ng-click='deleteListItem(inputLabel, $index)' class='delete' type="button" href=''>delete</button>
+      </div>
+   </div>
+</div>
