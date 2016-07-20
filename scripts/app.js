@@ -5,7 +5,7 @@ angular.module('TodoListApp', [])
 
 .directive('newTask', function() {
    return {
-        template: '<a href="">+ Add a New Task</a>'
+        template: '<div class="add"><a ng-click="addListItem()" href="">+ Add a New Task</a></div>'
     };
 })
 
@@ -27,6 +27,11 @@ angular.module('TodoListApp', [])
         $scope.inputLabels = response.data;
     })
     /**************** Need For Github ****************/
+
+   $scope.addListItem = function() {
+      var inputLabel = {'name': 'This is your new task.'};
+      $scope.inputLabels.push(inputLabel);
+   };
 
    $scope.saveListItem = function(inputLabel) {
       dataList.saveListItem(inputLabel);
