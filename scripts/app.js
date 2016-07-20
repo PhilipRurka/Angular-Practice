@@ -12,7 +12,7 @@ angular.module('TodoListApp', [])
 .controller('mainCtrl', function($scope, dataList) {
 
     dataList.getList(function(response){
-        console.log('Test');
+        console.log(response.data);
         $scope.inputLabels = response.data;
     })
 
@@ -20,7 +20,7 @@ angular.module('TodoListApp', [])
 
 .service('dataList', function($http) {
     this.getList = function(callback) {
-        $http.get('mock/todo-list.json')
+        $http.get('../mock/todo-list.json')
         .then(callback)
     }
 })
