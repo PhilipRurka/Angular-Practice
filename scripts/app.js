@@ -15,7 +15,6 @@ angular.module('TodoListApp', [])
         console.log(response.data);
         $scope.inputLabels = response.data;
     })
-
 })
 
 .service('dataList', function($http) {
