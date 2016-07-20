@@ -20,7 +20,7 @@ angular.module('TodoListApp', [])
 
 .service('dataList', function($http) {
     this.getList = function(callback) {
-        $http.get('../mock/todo-list.json')
+        $http.get('../Angular-Practice/mock/todo-list.json')
         .then(callback)
     }
 })
