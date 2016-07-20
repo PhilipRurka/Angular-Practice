@@ -12,6 +12,7 @@ angular.module('TodoListApp', [])
 .controller('mainCtrl', function($scope, dataList) {
 
     dataList.getList(function(response){
+        console.log('Test');
         $scope.inputLabels = response.data;
     })
 
