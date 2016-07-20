@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="css/normalize.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    	<link rel="stylesheet" type="text/css" href="css/main.css">
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+   <head>
+      <link rel="stylesheet" type="text/css" href="css/normalize.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="css/main.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
 
-    <body>
+   <body>
 
 <!--******************** Header Section *********************-->
 
-                <header class="header-section"></header>
+      <header class="header-section"></header>
 
 <!--******************** Header Section *********************-->
 
 
 <!--******************** Content Section *********************-->
 
-                <div class="content-section" ng-app="TodoListApp">
-                    <div class="plug-in" ng-controller='mainCtrl'>
-                        <h1>This Is My Todo List!</h1>
-                        <div class="list">
-                            <new-task></new-task>
-                            <div class="list-item-wrap" ng-class='{"item-selected": editing}' ng-repeat='inputLabel in inputLabels'>
-                                <div class="list-item">
-                                    <input class='checkbox' type="checkbox" ng-model='inputLabel.complete'>
-                                    <label class='editing-label' ng-class='{"edited": edited}' ng-hide='editing'>{{inputLabel.name}}</label>
-                                    <input class='editing-input' type="text" ng-change='edited = true' ng-blur='editing = false' ng-show='editing' ng-model='inputLabel.name'>
-                                </div>
-                                <div class="actions">
-                                    <button class='edit' type="button" href=''ng-click='editing = !editing'>edit</button>
-                                    <button class='save' type="button" href=''>save</button>
-                                    <button class='delete' type="button" href=''>delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+         <div class="content-section" ng-app="TodoListApp">
+            <div class="plug-in" ng-controller='mainCtrl'>
+               <h1>This Is My Todo List!</h1>
+               <div class="list">
+                  <new-task></new-task>
+                  <div class="list-item-wrap" ng-class='{"item-selected": editing}' ng-repeat='inputLabel in inputLabels'>
+                     <div class="list-item">
+                        <input class='checkbox' ng-model='inputLabel.complete' type="checkbox">
+                        <label class='editing-label' ng-class='{"edited": edited}' ng-hide='editing'>{{inputLabel.name}}</label>
+                        <input class='editing-input' ng-change='edited = true' ng-blur='editing = false' ng-show='editing' ng-model='inputLabel.name' type="text">
+                     </div>
+                     <div class="actions">
+                        <button class='edit' ng-click='editing = !editing' type="button" href=''>edit</button>
+                        <button class='save' ng-click='saveListItem(inputLabel)' type="button" href=''>save</button>
+                        <button class='delete' ng-click='deleteListItem(inputLabel, $index)' class='delete' type="button" href=''>delete</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
 
 <!--******************** Content Section *********************-->
 
 
 <!--******************** Footer Section *********************-->
 
-                <footer class="footer-section"></footer>
+      <footer class="footer-section"></footer>
 
 <!--******************** Footer Section *********************-->
 
                 <!-- Hack to solve the outline issue. -->
-                <div id="outline"><a href=''></a></div>
+      <div id="outline"><a href=''></a></div>
                 <!-- Hack to solve the outline issue. -->
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-        <script src="vendor/angular.js" type="text/javascript"></script>
-        <script src="scripts/app.js" type="text/javascript"></script>
-        <script src="https://code.jquery.com/jquery-1.9.0rc1.js"></script>
-    	<script src="scripts/script.js" type="text/javascript"></script>
-    </body>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+      <script src="vendor/angular.js" type="text/javascript"></script>
+      <script src="scripts/app.js" type="text/javascript"></script>
+      <script src="https://code.jquery.com/jquery-1.9.0rc1.js"></script>
+      <script src="scripts/script.js" type="text/javascript"></script>
+   </body>
 </html>
