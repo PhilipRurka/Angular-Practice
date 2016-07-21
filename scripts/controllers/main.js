@@ -25,8 +25,13 @@ angular.module('TodoListApp')
       $scope.inputLabels.unshift(inputLabel);
    };
 
-   $scope.saveListItem = function(inputLabel) {
-      dataList.saveListItem(inputLabel);
+   $scope.saveListItems = function() {
+      var filteredInputLabels = $scope.inputLabels.filter(function(inputLabel) {
+         if (inputLabel.edited === true) {
+            return inputLabel;
+         };
+      });
+      dataList.saveListItems(filteredInputLabels);
    };
 
    $scope.deleteListItem = function(inputLabel, $index) {
