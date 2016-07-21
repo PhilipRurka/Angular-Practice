@@ -1,4 +1,3 @@
-
 <div class="list">
    <div class="add">
       <a ng-click="addListItem()" href="">+ Add a New Task</a>
@@ -6,12 +5,11 @@
    <div class="list-item-wrap" ng-class='{"item-selected": editing}' ng-repeat='inputLabel in inputLabels | orderBy: "complete"' ng-init='inputLabel.complete = false'>
       <div class="list-item">
          <input class='checkbox' ng-model='inputLabel.complete' type="checkbox">
-         <label class='editing-label' ng-click='editing = !editing' ng-class='{"edited": edited, "complete": inputLabel.complete}' ng-hide='editing'>{{inputLabel.name}}</label>
-         <input class='editing-input' ng-change='edited = true' ng-blur='editing = false' ng-show='editing' ng-model='inputLabel.name' type="text">
+         <label class='editing-label' ng-click='editing = !editing' ng-class='{"edited": inputLabel.edited, "complete": inputLabel.complete}' ng-hide='editing'>{{inputLabel.name}}</label>
+         <input class='editing-input' ng-change='inputLabel.edited = true' ng-blur='editing = false' ng-show='editing' ng-model='inputLabel.name' type="text">
       </div>
       <div class="actions">
-         <button class='edit' type="button" href=''>edit</button>
-         <button class='save' ng-click='edited = false; saveListItem(inputLabel)' type="button" href=''>save</button>
+         <button class='save' ng-click='inputLabel.edited = false; saveListItems(inputLabel)' type="button" href=''>save</button>
          <button class='delete' ng-click='deleteListItem(inputLabel, $index)' class='delete' type="button" href=''>delete</button>
       </div>
    </div>
