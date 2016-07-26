@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TodoListApp')
-.controller('mainCtrl', function($scope, dataList) {
+.controller('listCtrl', function($scope, dataList) {
 
     /**************** Need For File ****************/
    //  $scope.inputLabels = [
@@ -27,7 +27,7 @@ angular.module('TodoListApp')
 
    $scope.saveListItems = function() {
       var filteredInputLabels = $scope.inputLabels.filter(function(inputLabel) {
-         if (inputLabel.edited === true) {
+         if (inputLabel.edited) {
             return inputLabel;
          };
       });

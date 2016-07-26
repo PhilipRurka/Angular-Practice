@@ -1,11 +1,9 @@
 
-/**************** Need For Github ****************/
 angular.module('TodoListApp')
 .directive('list', function() {
    return {
         templateUrl: 'templates/list.html',
-        controller: 'mainCtrl',
+        controller: 'listCtrl',
         replace: true
     };
 })
-/**************** Need For Github ****************/
