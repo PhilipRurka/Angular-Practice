@@ -1,6 +1,6 @@
 
 angular.module('apiTesting')
-.directive('apiTest', function() {
+.directive('api', function() {
    return {
         templateUrl: 'templates/apiTest.html',
         controller: 'apiCtrl',
