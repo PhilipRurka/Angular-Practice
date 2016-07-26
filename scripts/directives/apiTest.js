@@ -2,7 +2,7 @@
 angular.module('apiTesting')
 .directive('api', function() {
    return {
-        templateUrl: 'templates/apiTest.html',
+        template: <h1>Testing</hi>,
         controller: 'apiCtrl',
         replace: true
     };
