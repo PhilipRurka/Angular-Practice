@@ -1,7 +1,7 @@
 
 
 
-angular.module('apiTesting', []);
+angular.module('ApiTesting', []);
 angular.module('TodoListApp', []);
 
 

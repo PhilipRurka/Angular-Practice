@@ -1,5 +1,5 @@
 
-angular.module('apiTesting')
+angular.module('ApiTesting')
 .directive('api', function() {
    return {
         template: 'Testing',
